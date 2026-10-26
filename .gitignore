@@ -1,0 +1,12 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.streamlit/*
+!.streamlit/config.toml
+data/inspection_history.db
+data/upload_*
+data/outputs/
+*.pt
+.DS_Store

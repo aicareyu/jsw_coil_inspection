@@ -1,0 +1,49 @@
+project:
+  name: " Coil Surface Inspection"
+  defect_classes:
+    - foreign_edge
+    - edge_rub
+    - loose_coil
+
+paths:
+  model_file: "models/best.pt"
+  samples_dir: "samples"
+  history_db: "data/inspection_history.db"
+  excel_source: "JSW Defective Coils images.xlsx"
+  dataset_root: "dataset"
+
+inference:
+  max_side: 960
+  conf_threshold: 0.45
+  iou_threshold: 0.45
+  device: "auto"   # auto | cpu | cuda
+
+demo_detector:
+  clahe_clip: 2.0
+  denoise_h: 4
+  min_coil_coverage: 0.10
+  min_anisotropy: 0.20
+  min_edge_energy: 8.0
+  max_mean_saturation: 78.0
+  heat_residual_weight: 0.60
+  heat_disorder_weight: 0.40
+  peak_threshold: 0.78
+  score_threshold: 0.88
+  min_box_w: 14
+  min_box_h: 10
+  min_box_area: 180
+  max_box_area_ratio: 0.35
+  box_padding: 8
+  max_detections: 3
+
+video:
+  frame_interval: 8
+  max_frames: 180
+
+camera:
+  camera_index: 0
+  width: 1280
+  height: 720
+
+history:
+  max_rows: 200
